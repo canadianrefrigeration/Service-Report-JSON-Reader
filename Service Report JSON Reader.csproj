@@ -9,6 +9,9 @@
     <PublishSingleFile>true</PublishSingleFile>
     <SelfContained>true</SelfContained>
     <RuntimeIdentifier>win-x64</RuntimeIdentifier>
+    <DebugType>None</DebugType>
+    <DebugSymbols>False</DebugSymbols>
+    <PublishDir>C:\Users\Owner\Desktop</PublishDir>
   </PropertyGroup>
 
   <ItemGroup>
