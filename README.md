@@ -16,5 +16,5 @@ dotnet run
 ## Publish to Desktop
 
 ```
-dotnet publish --output "C:\Users\Owner\Desktop"
+dotnet publish
 ```
