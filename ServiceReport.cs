@@ -181,19 +181,6 @@ public class PaymentSetClass
     public float? Price { get; set; }
 }
 
-public class CustomPaymentSetClass
-{
-    public CustomPaymentSetClass(string? payment, string? note, float? price)
-    {
-        Payment = payment?.Trim();
-        Note = note?.Trim();
-        Price = price;
-    }
-    public string? Payment { get; set; }
-    public string? Note { get; set; }
-    public float? Price { get; set; }
-}
-
 public class PaymentClass
 {
     public float? TotalHr { get; set; }
@@ -201,10 +188,6 @@ public class PaymentClass
     public float? TotalHrPrice { get; set; }
     public PaymentSetClass? Material { get; set; }
     public PaymentSetClass? ServiceVan { get; set; }
-    public PaymentSetClass? ServiceCall { get; set; }
-    public CustomPaymentSetClass? CustomPayment1 { get; set; }
-    public CustomPaymentSetClass? CustomPayment2 { get; set; }
-    public CustomPaymentSetClass? CustomPayment3 { get; set; }
     public PaymentSetClass? SubTotal { get; set; }
     public PaymentSetClass? GST { get; set; }
     public PaymentSetClass? PST { get; set; }
@@ -215,7 +198,6 @@ public class ServiceReport
 {
     public ServiceReport(
         string? key,
-        string? billTo,
         CustomerAddressClass? customerAddress,
         string? personCalling,
         PhoneNumberClass? phoneNumber,
@@ -228,15 +210,14 @@ public class ServiceReport
         bool completed,
         bool boParts,
         string? typeOfService,
-        List<string>? customerComplaint,
-        List<string>? servicesRendered,
-        List<string>? remarksAndRecommendations,
+        string? customerComplaint,
+        string? servicesRendered,
+        string? remarksAndRecommendations,
         MaterialsClass? materials,
         HourClass? hour,
         PaymentClass? payment)
     {
         Key = key?.Trim();
-        BillTo = billTo?.Trim();
         CustomerAddress = customerAddress;
         PersonCalling = personCalling?.Trim();
         PhoneNumber = phoneNumber;
@@ -249,15 +230,14 @@ public class ServiceReport
         Completed = completed;
         BOParts = boParts;
         TypeOfService = typeOfService?.ToUpper()?.Trim();
-        CustomerComplaint = customerComplaint?.Select(c => c?.Trim()?.TrimEnd('.')).ToList();
-        ServicesRendered = servicesRendered?.Select(s =>(!string.IsNullOrEmpty(s?.Trim()) && !(s?.Trim()?.EndsWith(".") ?? true)) ? s?.Trim() + "." : s?.Trim()).ToList();
-        RemarksAndRecommendations = remarksAndRecommendations?.Select(r => r?.Trim()).ToList();
+        CustomerComplaint = customerComplaint?.Trim();
+        ServicesRendered = servicesRendered?.Trim();
+        RemarksAndRecommendations = remarksAndRecommendations?.Trim();
         Materials = materials;
         Hour = hour;
         Payment = payment;
     }
     public string? Key { get; set; }
-    public string? BillTo { get; set; }
     public CustomerAddressClass? CustomerAddress { get; set; }
     public string? PersonCalling { get; set; }
     public PhoneNumberClass? PhoneNumber { get; set; }
@@ -270,9 +250,9 @@ public class ServiceReport
     public bool Completed { get; set; }
     public bool BOParts { get; set; }
     public string? TypeOfService { get; set; }
-    public List<string?>? CustomerComplaint { get; set; }
-    public List<string?>? ServicesRendered { get; set; }
-    public List<string?>? RemarksAndRecommendations { get; set; }
+    public string? CustomerComplaint { get; set; }
+    public string? ServicesRendered { get; set; }
+    public string? RemarksAndRecommendations { get; set; }
     public MaterialsClass? Materials { get; set; }
     public HourClass? Hour { get; set; }
     public PaymentClass? Payment { get; set; }
