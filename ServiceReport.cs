@@ -50,13 +50,15 @@ public class EquipmentsClass
 }
 public class RefrigerantRClass
 {
-    public RefrigerantRClass(string? unit, string? qty)
+    public RefrigerantRClass(string? unit, string? qty, string? type)
     {
         Unit = unit?.Trim();
         QTY = qty?.Trim();
+        Type_ = type?.Trim();
     }
     public string? Unit { get; set; }
     public string? QTY { get; set; }
+    public string? Type_ { get; set; }
 }
 
 public class PresetClass
