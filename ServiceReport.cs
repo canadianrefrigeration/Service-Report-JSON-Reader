@@ -5,7 +5,17 @@ public class CustomerAddressClass
         CompanyName = companyName?.Trim();
         Address1 = address1?.Trim();
         CityAndProvince = cityAndProvince?.Trim();
-        PostalCode = postalCode?.Trim();
+        PostalCode = ValidatePostalCode(postalCode);
+    }
+    private string? ValidatePostalCode(string? postalCode)
+    {
+        if (postalCode?.Trim() != null)
+        {
+            postalCode = postalCode.Trim();
+            if (postalCode.Length == 7 && postalCode[3] == ' ') return postalCode;
+            else return postalCode.Substring(0, 3) + " " + postalCode.Substring(3, 3); 
+        }
+        return null;
     }
     public string? CompanyName { get; set; }
     public string? Address1 { get; set; }
@@ -204,7 +214,7 @@ public class ServiceReport
         string? serv,
         string? poNo,
         EquipmentsClass? equipments,
-        int? timeOfCall,
+        string? timeOfCall,
         string? dateOfService,
         string? dateOfComp,
         bool completed,
@@ -244,7 +254,7 @@ public class ServiceReport
     public string? Serv { get; set; }
     public string? PONo { get; set; }
     public EquipmentsClass? Equipments { get; set; }
-    public int? TimeOfCall { get; set; }
+    public string? TimeOfCall { get; set; }
     public string? DateOfService { get; set; }
     public string? DateOfComp { get; set; }
     public bool Completed { get; set; }
