@@ -5,7 +5,17 @@ public class CustomerAddressClass
         CompanyName = companyName?.Trim();
         Address1 = address1?.Trim();
         CityAndProvince = cityAndProvince?.Trim();
-        PostalCode = postalCode;
+        PostalCode = ValidatePostalCode(postalCode);
+    }
+    private string? ValidatePostalCode(string? postalCode)
+    {
+        if (postalCode?.Trim() != null)
+        {
+            postalCode = postalCode.Trim();
+            if (postalCode.Length == 7 && postalCode[3] == ' ') return postalCode;
+            else return postalCode.Substring(0, 3) + " " + postalCode.Substring(3, 3); 
+        }
+        return "";
     }
     public string? CompanyName { get; set; }
     public string? Address1 { get; set; }
