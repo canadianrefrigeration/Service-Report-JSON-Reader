@@ -253,12 +253,12 @@ public class ServiceReport
     public PhoneNumberClass? PhoneNumber { get; set; }
     public string? Serv { get; set; }
     public string? PONo { get; set; }
-    public EquipmentsClass? Equipments { get; set; }
     public string? TimeOfCall { get; set; }
     public string? DateOfService { get; set; }
     public string? DateOfComp { get; set; }
     public bool Completed { get; set; }
     public bool BOParts { get; set; }
+    public EquipmentsClass? Equipments { get; set; }
     public string? TypeOfService { get; set; }
     public string? CustomerComplaint { get; set; }
     public string? ServicesRendered { get; set; }
