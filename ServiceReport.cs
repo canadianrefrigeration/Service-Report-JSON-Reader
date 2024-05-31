@@ -9,7 +9,7 @@ public class CustomerAddressClass
     }
     private string? ValidatePostalCode(string? postalCode)
     {
-        if (postalCode?.Trim() != null)
+        if (!string.IsNullOrEmpty(postalCode?.Trim()))
         {
             postalCode = postalCode.Trim();
             if (postalCode.Length == 7 && postalCode[3] == ' ') return postalCode;
