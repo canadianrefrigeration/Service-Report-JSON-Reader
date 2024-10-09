@@ -109,12 +109,12 @@ public class CO2N2Class
 
 public class MaterialsItemClass
 {
-    public MaterialsItemClass(string? materialUsed, string? qty, string? partNo, bool whol, bool ts, bool shop, float? price)
+    public MaterialsItemClass(string? materialUsed, string? qty, string? partNo, string? whol, bool ts, bool shop, float? price)
     {
         MaterialUsed = materialUsed?.Trim();
         QTY = qty?.Trim();
         PartNo = partNo?.Trim();
-        Whol = whol;
+        Whol = whol?.Trim();
         TS = ts;
         Shop = shop;
         Price = price;
@@ -122,7 +122,7 @@ public class MaterialsItemClass
     public string? MaterialUsed { get; set; }
     public string? QTY { get; set; }
     public string? PartNo { get; set; }
-    public bool Whol { get; set; }
+    public string? Whol { get; set; }
     public bool TS { get; set; }
     public bool Shop { get; set; }
     public float? Price { get; set; }
